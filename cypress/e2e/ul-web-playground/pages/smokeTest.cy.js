@@ -16,6 +16,7 @@ describe("Smoke Test", () => {
       accountPage.navigateToHomePage();
       cy.title().should('eq', 'ul-web-playground')
       homePage.searchItem("Jeans\n");
+      searchPage.checkNameOfItemListed("Jeans");
       searchPage.selectFirstItem();
 
   });
