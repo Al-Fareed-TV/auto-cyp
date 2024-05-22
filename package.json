@@ -1,0 +1,15 @@
+{
+  "name": "cypress-tut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dkt":"cypress run --browser chrome --headed --spec ./cypress/e2e/decathlon"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.9.0"
+  }
+}
