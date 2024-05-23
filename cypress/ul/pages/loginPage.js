@@ -1,6 +1,6 @@
+import locators from "../config/locators.json"
 class loginPage {
   static instance;
-
   constructor() {
       if (loginPage.instance) {
       throw new Error(
@@ -18,20 +18,20 @@ class loginPage {
   }
 
   getEmailElement() {
-    return cy.get("#CustomerEmail");
+    return cy.get(locators.loginpage.emailInput);
   }
   getPasswordelement() {
-    return cy.get("#CustomerPassword");
+    return cy.get(locators.loginpage.passwordInput);
   }
   loginUser() {
-    this.getEmailElement().type("alfareed@testvagrant.com");
-    this.getPasswordelement().type("alfareed@TV781");
-    cy.get("#customer_login").submit();
+    this.getEmailElement().type(Cypress.env("username"));
+    this.getPasswordelement().type(Cypress.env("password"));
+    cy.get(locators.loginpage.loginButton).submit();
   }
   invalidLoginUser() {
-    this.getEmailElement().type("alfareedss@testvagrant.com");
-    this.getPasswordelement().type("alfareed@TV7");
-    cy.get("#customer_login").submit();
+    this.getEmailElement().type(Cypress.env("invalidUsername"));
+    this.getPasswordelement().type(Cypress.env("invalidPassword"));
+    cy.get(locators.loginpage.loginButton).submit();
   }
 }
 module.exports = loginPage;

@@ -1,4 +1,4 @@
-
+import locators from "../config/locators.json";
 class cartPage {
   static instance;
 
@@ -18,11 +18,12 @@ class cartPage {
     return cartPage.instance;
   }
   verifyCartPage() {
+    cy.title().should("eq", "Your Shopping Cart – ul-web-playground");
     cy.contains("Your cart");
     return this;
   }
   verifyProductNameInCart(text) {
-    cy.get("#CartItem-1 > td.cart-item__details > a")
+    cy.get(locators.cartpage.cartItemName)
       .invoke("text")
       .then((text) => {
         expect(text).to.exist;
@@ -30,9 +31,7 @@ class cartPage {
     return this;
   }
   verifyPriceInCartPage(price) {
-    cy.get(
-      "#CartItem-1 > td.cart-item__totals.right.small-hide > div.cart-item__price-wrapper > span"
-    )
+    cy.get(locators.cartpage.cartItemPrice)
       .invoke("text")
       .then((price) => {
         expect(price).to.exist;
@@ -40,7 +39,7 @@ class cartPage {
     return this;
   }
   verifyQtyInCartPage(qty) {
-    cy.get("#Quantity-1")
+    cy.get(locators.cartpage.cartItemQty)
       .invoke("val")
       .then((qty) => {
         expect(qty).to.exist;
@@ -48,7 +47,7 @@ class cartPage {
     return this;
   }
   checkoutProduct() {
-    cy.get("#checkout").click();
+    cy.get(locators.cartpage.checkoutButton).click();
   }
 }
 module.exports = cartPage;

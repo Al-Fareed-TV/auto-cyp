@@ -1,3 +1,4 @@
+import locators from "../config/locators.json";
 class productPage {
   static instance;
 
@@ -17,25 +18,25 @@ class productPage {
     return productPage.instance;
   }
   checkProductAvailability() {
-    cy.contains("Add to cart").should("be.visible");
-    cy.contains("Buy it now").should("be.visible");
+    cy.get(locators.productpage.addToCartButton).should("be.visible");
+    cy.get(locators.productpage.buyNowButton).should("be.visible");
     return this;
   }
   changeQty(qty) {
-    cy.get("#Quantity-template--15328405717213__main").type(qty);
+    cy.get(locators.productpage.qtyElement).type(qty);
     return this;
   }
   addProductToCart() {
-    cy.contains("Add to cart").click();
+    cy.get(locators.productpage.addToCartButton).click();
     return this;
   }
   verifyProductAddedToCart() {
-    cy.contains("Item added to your cart").should("be.visible");
-    cy.contains("View my cart (1)").should("be.visible");
+    cy.contains(locators.productpage.productAddedMessage).should("be.visible");
+    cy.get(locators.productpage.cartButton).should("be.visible");
     return this;
   }
   goToCart() {
-    cy.contains("View my cart (1)").click();
+    cy.get(locators.productpage.cartButton).click();
   }
 }
-module.exports = productPage
+module.exports = productPage;

@@ -1,3 +1,4 @@
+import locators from "../config/locators.json"
 class accountPage {
   static instance;
 
@@ -17,12 +18,10 @@ class accountPage {
     return accountPage.instance;
   }
   navigateToHomePage() {
-    cy.get(
-      "#shopify-section-header > sticky-header > header > nav > ul > li:nth-child(1) > a > span"
-    ).click();
+    cy.get(locators.accountpage.homePageButton).click();
   }
   userLogout() {
-    cy.contains("Log out").click();
+    cy.contains(locators.accountpage.logoutButton).click();
   }
 }
 module.exports = accountPage

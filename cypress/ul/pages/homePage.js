@@ -1,3 +1,4 @@
+import locators from "../config/locators.json"
 class homePage {
   static instance;
 
@@ -17,15 +18,11 @@ class homePage {
     return homePage.instance;
   }
   searchItem(item) {
-    cy.get(
-      "#shopify-section-header > sticky-header > header > div > details-modal > details > summary > span > svg.modal__toggle-open.icon.icon-search"
-    ).click();
-    cy.get("#Search-In-Modal").type(item);
+    cy.get(locators.homepage.searchIcon).click();
+    cy.get(locators.homepage.searchInputElement).type(item);
   }
   goToAccountPage() {
-    cy.get(
-      "#shopify-section-header > sticky-header > header > div > a.header__icon.header__icon--account.link.focus-inset.small-hide"
-    ).click();
+    cy.get(locators.homepage.accountIcon).click();
   }
 }
 module.exports = homePage;

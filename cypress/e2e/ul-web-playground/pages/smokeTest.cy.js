@@ -7,7 +7,7 @@ const CartPage = require("../../../ul/pages/cartPage");
 const PaymentPage = require("../../../ul/pages/paymentPage");
 describe("Smoke Test", () => {
   beforeEach(() => {
-    cy.visit("https://web-playground.ultralesson.com/account/login");
+    cy.visit(Cypress.env('baseUrl'));
   });
   it("Test happy paths", () => {
     const loginPage = LoginPageClass.getInstance();
@@ -18,6 +18,7 @@ describe("Smoke Test", () => {
     const cartPage = CartPage.getInstance();
     const paymentPage = PaymentPage.getInstance();
 
+    homePage.goToAccountPage();
     loginPage.loginUser();
     accountPage.navigateToHomePage();
     cy.title().should("eq", "ul-web-playground");
