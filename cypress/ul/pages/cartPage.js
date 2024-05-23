@@ -17,8 +17,8 @@ class cartPage {
     }
     return cartPage.instance;
   }
-  verifyCartPage() {
-    cy.title().should("eq", "Your Shopping Cart – ul-web-playground");
+  verifyCartPage(title) {
+    cy.title().should("eq", title);
     cy.contains("Your cart");
     return this;
   }

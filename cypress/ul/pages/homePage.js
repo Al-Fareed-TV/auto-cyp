@@ -17,9 +17,11 @@ class homePage {
     }
     return homePage.instance;
   }
+
   searchItem(item) {
     cy.get(locators.homepage.searchIcon).click();
-    cy.get(locators.homepage.searchInputElement).type(item);
+    cy.get(locators.homepage.searchInputElement).type(item+"\n");
+
   }
   goToAccountPage() {
     cy.get(locators.homepage.accountIcon).click();

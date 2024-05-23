@@ -1,3 +1,4 @@
+import locators from "../config/locators.json";
 class searchResultPage {
   static instance;
 
@@ -17,12 +18,10 @@ class searchResultPage {
     return searchResultPage.instance;
   }
   selectFirstItem() {
-    cy.get("#product-grid > ul > li:nth-child(1)").click();
+    cy.get(locators.searchResultPage.firstItemListed).click();
   }
   checkNameOfItemListed(text) {
-    cy.get(
-      "#product-grid > ul > li:nth-child(1) > div > div.card-information > div > h3 > a"
-    )
+    cy.get(locators.searchResultPage.firstItemListedName)
       .invoke("text")
       .then((text) => {
         expect(text).to.exist;

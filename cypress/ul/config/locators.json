@@ -13,6 +13,10 @@
         "logoutButton": "Log out",
         "homePageButton": "#shopify-section-header > sticky-header > header > nav > ul > li:nth-child(1) > a > span"
     },
+    "searchResultPage":{
+        "firstItemListed": "#product-grid > ul > li:nth-child(1)",
+        "firstItemListedName":"#product-grid > ul > li:nth-child(1) > div > div.card-information > div > h3 > a"
+    },
     "productpage": {
         "addToCartButton": "button:contains('Add to cart')",
         "buyNowButton": "button:contains('Buy it now')",

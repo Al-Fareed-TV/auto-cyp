@@ -5,6 +5,7 @@ const searchResultClass = require("../../../ul/pages/searchResultPage");
 const ProductPage = require("../../../ul/pages/productPage");
 const CartPage = require("../../../ul/pages/cartPage");
 const PaymentPage = require("../../../ul/pages/paymentPage");
+import data from "../../../ul/config/data.json";
 describe("Smoke Test", () => {
   beforeEach(() => {
     cy.visit(Cypress.env('baseUrl'));
@@ -21,10 +22,11 @@ describe("Smoke Test", () => {
     homePage.goToAccountPage();
     loginPage.loginUser();
     accountPage.navigateToHomePage();
-    cy.title().should("eq", "ul-web-playground");
-    homePage.searchItem("Jeans\n");
+    cy.title().should("eq", data.homepage.title);
+    homePage.searchItem(data.homepage.searchItem);
 
-    searchPage.checkNameOfItemListed("Jeans")
+    searchPage
+      .checkNameOfItemListed(data.homepage.searchItem)
       .selectFirstItem();
 
     productPage
@@ -34,18 +36,22 @@ describe("Smoke Test", () => {
       .goToCart();
 
     cartPage
-      .verifyCartPage()
-      .verifyProductNameInCart("Belted Jeans")
-      .verifyPriceInCartPage("Rs. 299.6")
-      .verifyQtyInCartPage(1)
+      .verifyCartPage(data.cartpage.title)
+      .verifyProductNameInCart(data.cartpage.ProductNameInCart)
+      .verifyPriceInCartPage(data.cartpage.ProductPriceInCart)
+      .verifyQtyInCartPage(data.cartpage.ProductQtyInCart)
       .checkoutProduct();
 
     paymentPage
-      .verifyPaymentPage()
+      .verifyPaymentPage(data.paymentpage.title)
       .chooseCOD()
-      .verifyProductInPaymentPage()
+      .verifyProductInPaymentPage(
+        data.paymentpage.productQty,
+        data.paymentpage.productPrice,
+        data.paymentpage.totalPrice
+      )
       .completeOrder()
-      .veriyOrderCompletion()
+      .veriyOrderCompletion(data.paymentpage.orderSuccessMessage)
       .goToHomePage();
 
     homePage.goToAccountPage();

@@ -17,33 +17,36 @@ class paymentPage {
     }
     return paymentPage.instance;
   }
-  verifyPaymentPage() {
-    cy.title().should("eq", "Checkout - ul-web-playground");
+  verifyPaymentPage(title) {
+    cy.title().should("eq", title);
     return this;
   }
   chooseCOD() {
     cy.contains(locators.paymentpage.codOption).click();
     return this;
   }
-  verifyProductInPaymentPage() {
-    cy.get(locators.paymentpage.qtyItem).invoke("text").should("eq", "1");
+  verifyProductInPaymentPage(productQty,productPrice,totalPrice) {
+    cy.get(locators.paymentpage.qtyItem)
+      .invoke("text")
+      .should("eq", productQty);
+    
     cy.get(locators.paymentpage.itemPrice)
       .invoke("text")
-      .should("eq", "₹299.60");
+      .should("eq", productPrice);
 
     cy.get(locators.paymentpage.totlaPrice)
       .invoke("text")
-      .should("eq", "₹335.86");
+      .should("eq", totalPrice);
     return this;
   }
   completeOrder() {
     cy.get(locators.paymentpage.completeOrderButton).click();
     return this;
   }
-  veriyOrderCompletion() {
+  veriyOrderCompletion(message) {
     cy.title().should(
       "eq",
-      "Thank you for your purchase! - ul-web-playground - Checkout"
+      message
     );
     return this;
   }
