@@ -17,7 +17,7 @@
         "title": "Checkout - ul-web-playground",
         "productQty":"1",
         "productPrice":"₹299.60",
-        "totalPrice":"₹335.86",
+        "totalPrice":"INR₹335.86",
         "orderSuccessMessage":"Thank you for your purchase! - ul-web-playground - Checkout"
     }
 }
