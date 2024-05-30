@@ -1,0 +1,23 @@
+{
+    "homepage": {
+        "searchItem":"Jeans",
+        "title" : "ul-web-playground"
+    },
+    "loginpage": {},
+    "accountpage": {},
+    "productpage": {},
+    "cartpage": {
+        "title":"Your Shopping Cart – ul-web-playground",
+        "ProductNameInCart":"Belted Jeans",
+        "ProductPriceInCart":"Belted Jeans",
+        "ProductQtyInCart":1
+
+    },
+    "paymentpage": {
+        "title": "Checkout - ul-web-playground",
+        "productQty":"1",
+        "productPrice":"₹299.60",
+        "totalPrice":"₹335.86",
+        "orderSuccessMessage":"Thank you for your purchase! - ul-web-playground - Checkout"
+    }
+}

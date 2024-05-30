@@ -1,10 +1,30 @@
-class homePage{
-    searchItem(item) {
-        cy.get(
-          "#shopify-section-header > sticky-header > header > div > details-modal > details > summary > span > svg.modal__toggle-open.icon.icon-search"
-        ).click();
-        cy.get("#Search-In-Modal").type(item);
+import locators from "../config/locators.json"
+class homePage {
+  static instance;
 
+  constructor() {
+    if (homePage.instance) {
+      throw new Error(
+        "Use homePage.getInstance() to get the single instance of this class."
+      );
     }
+    homePage.instance = this;
+  }
+
+  static getInstance() {
+    if (!homePage.instance) {
+      homePage.instance = new homePage();
+    }
+    return homePage.instance;
+  }
+
+  searchItem(item) {
+    cy.get(locators.homepage.searchIcon).click();
+    cy.get(locators.homepage.searchInputElement).type(item+"\n");
+
+  }
+  goToAccountPage() {
+    cy.get(locators.homepage.accountIcon).click();
+  }
 }
 module.exports = homePage;

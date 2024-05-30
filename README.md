@@ -1,6 +1,17 @@
 # Cypress Automation
 This is an automation script for automating [E-Commerce site](https://web-playground.ultralesson.com/account/login) using Cypress and POM.
 
+### Create a cypress.env.json file under main folder
+add data like
+ ``` {
+    "baseUrl": "url",
+    "username": "email",
+    "password": "pass",
+    "invalidUsername":"invalid@email.com",
+    "invalidPassword":"invalidPass"
+  }
+ ```
+
 ## How to run this
 1. clone the repo
 2. open terminal and run "npm i"

@@ -1,19 +1,37 @@
-class loginPage{
-     getEmailElement() {
-        return cy.get("#CustomerEmail")
+import locators from "../config/locators.json"
+class loginPage {
+  static instance;
+  constructor() {
+      if (loginPage.instance) {
+      throw new Error(
+        "Use loginPage.getInstance() to get the single instance of this class."
+      );
     }
-     getPasswordelement() {
-        return cy.get("#CustomerPassword")
+    loginPage.instance = this;
+  }
+
+  static getInstance() {
+    if (!loginPage.instance) {
+      loginPage.instance = new loginPage();
     }
-    loginUser() {
-        this.getEmailElement().type("alfareed@testvagrant.com");
-        this.getPasswordelement().type("alfareed@TV781");
-       cy.get("#customer_login").submit();
-    }
-    invalidLoginUser() {
-        this.getEmailElement().type("alfareedss@testvagrant.com");
-        this.getPasswordelement().type("alfareed@TV7");
-        cy.get("#customer_login").submit();
-    }
+    return loginPage.instance;
+  }
+
+  getEmailElement() {
+    return cy.get(locators.loginpage.emailInput);
+  }
+  getPasswordelement() {
+    return cy.get(locators.loginpage.passwordInput);
+  }
+  loginUser() {
+    this.getEmailElement().type(Cypress.env("username"));
+    this.getPasswordelement().type(Cypress.env("password"));
+    cy.get(locators.loginpage.loginButton).submit();
+  }
+  invalidLoginUser() {
+    this.getEmailElement().type(Cypress.env("invalidUsername"));
+    this.getPasswordelement().type(Cypress.env("invalidPassword"));
+    cy.get(locators.loginpage.loginButton).submit();
+  }
 }
 module.exports = loginPage;
