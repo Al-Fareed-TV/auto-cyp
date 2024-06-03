@@ -1,4 +1,4 @@
-import locators from "../config/locators.json";
+import locators from "../../config/locators.json";
 
 function selectFirstItem() {
   cy.get(locators.searchResultPage.firstItemListed).click();

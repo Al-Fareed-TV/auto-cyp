@@ -1,4 +1,4 @@
-import locators from "../config/locators.json";
+import locators from "../../config/locators.json";
 
 function navigateToHomePage() {
   cy.get(locators.accountpage.homePageButton).click();

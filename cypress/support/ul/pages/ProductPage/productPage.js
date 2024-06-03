@@ -1,4 +1,4 @@
-import locators from "../config/locators.json";
+import locators from "../../config/locators.json";
 
 function checkProductAvailability() {
   cy.get(locators.productpage.addToCartButton).should("be.visible");

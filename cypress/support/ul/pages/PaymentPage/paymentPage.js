@@ -1,4 +1,4 @@
-import locators from "../config/locators.json";
+import locators from "../../config/locators.json";
 
 function verifyPaymentPage(title) {
   cy.title().should("eq", title);
@@ -16,7 +16,6 @@ function verifyProductInPaymentPage(productQty, productPrice, totalPrice) {
     .should("eq", productPrice);
 
   cy.contains(totalPrice);
-   
 }
 
 function completeOrder() {

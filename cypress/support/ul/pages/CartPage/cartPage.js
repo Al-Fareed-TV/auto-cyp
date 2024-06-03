@@ -1,4 +1,4 @@
-import locators from "../config/locators.json";
+import * as locators from "./locators.js";
 
 function verifyCartPage(title) {
   cy.title().should("eq", title);
@@ -6,7 +6,7 @@ function verifyCartPage(title) {
 }
 
 function verifyProductNameInCart() {
-  cy.get(locators.cartpage.cartItemName)
+  cy.get(locators.cartItemName)
     .invoke("text")
     .then((text) => {
       expect(text).to.exist;
@@ -14,7 +14,7 @@ function verifyProductNameInCart() {
 }
 
 function verifyPriceInCartPage() {
-  cy.get(locators.cartpage.cartItemPrice)
+  cy.get(locators.cartItemPrice)
     .invoke("text")
     .then((price) => {
       expect(price).to.exist;
@@ -22,7 +22,7 @@ function verifyPriceInCartPage() {
 }
 
 function verifyQtyInCartPage() {
-  cy.get(locators.cartpage.cartItemQty)
+  cy.get(locators.cartItemQty)
     .invoke("val")
     .then((qty) => {
       expect(qty).to.exist;
@@ -30,7 +30,7 @@ function verifyQtyInCartPage() {
 }
 
 function checkoutProduct() {
-  cy.get(locators.cartpage.checkoutButton).click();
+  cy.get(locators.checkoutButton).click();
 }
 
 export {

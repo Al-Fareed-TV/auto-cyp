@@ -1,25 +1,15 @@
-const {
-  loginUser,
-} = require("../../../ul/pages/loginPage");
-
-const {
-  navigateToHomePage,
-  userLogout,
-} = require("../../../ul/pages/accountPage");
-
-const { searchItem, goToAccountPage } = require("../../../ul/pages/homePage");
 
 const {
   selectFirstItem,
   checkNameOfItemListed,
-} = require("../../../ul/pages/searchResultPage");
+} = require("../../../support/ul/pages/SearchResultPage/searchResultPage");
 
 const {
   checkProductAvailability,
   addProductToCart,
   verifyProductAddedToCart,
   goToCart,
-} = require("../../../ul/pages/productPage");
+} = require("../../../support/ul/pages/ProductPage/productPage");
 
 const {
   verifyCartPage,
@@ -27,7 +17,7 @@ const {
   verifyPriceInCartPage,
   verifyQtyInCartPage,
   checkoutProduct,
-} = require("../../../ul/pages/cartPage");
+} = require("../../../support/ul/pages/CartPage/cartPage");
 
 const {
   verifyPaymentPage,
@@ -36,21 +26,14 @@ const {
   completeOrder,
   verifyOrderCompletion,
   goToHomePage,
-} = require("../../../ul/pages/paymentPage");
+} = require("../../../support/ul/pages/PaymentPage/paymentPage");
 
-import data from "../../../ul/config/data.json";
+import data from "../../../support/ul/config/data.json";
 
-describe("Smoke Test", () => {
-  beforeEach(() => {
-    cy.visit(Cypress.env("baseUrl"));
-  });
-
-  it("Test happy paths", () => {
-    goToAccountPage();
-    loginUser();
-    navigateToHomePage();
-    cy.title().should("eq", data.homepage.title);
-    searchItem(data.homepage.searchItem);
+describe("Search for a product and place order", () => {
+  it("Verify user is able to search and place order", () => {
+    
+    cy.searchProduct(data.homepage.searchItem);
 
     checkNameOfItemListed(data.homepage.searchItem);
     selectFirstItem();
@@ -77,7 +60,7 @@ describe("Smoke Test", () => {
     verifyOrderCompletion(data.paymentpage.orderSuccessMessage);
     goToHomePage();
 
-    goToAccountPage();
-    userLogout();
+    cy.logout();
+
   });
 });
