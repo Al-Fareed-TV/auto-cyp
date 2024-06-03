@@ -2,14 +2,14 @@
 const {
   selectFirstItem,
   checkNameOfItemListed,
-} = require("../../../support/ul/pages/SearchResultPage/searchResultPage");
+} = require("../../../support/ul/components/SearchResult/searchResultPage");
 
 const {
   checkProductAvailability,
   addProductToCart,
   verifyProductAddedToCart,
   goToCart,
-} = require("../../../support/ul/pages/ProductPage/productPage");
+} = require("../../../support/ul/components/Product/product");
 
 const {
   verifyCartPage,
@@ -17,7 +17,7 @@ const {
   verifyPriceInCartPage,
   verifyQtyInCartPage,
   checkoutProduct,
-} = require("../../../support/ul/pages/CartPage/cartPage");
+} = require("../../../support/ul/components/Cart/cart");
 
 const {
   verifyPaymentPage,
@@ -26,14 +26,14 @@ const {
   completeOrder,
   verifyOrderCompletion,
   goToHomePage,
-} = require("../../../support/ul/pages/PaymentPage/paymentPage");
+} = require("../../../support/ul/components/Payment/payment");
 
-import data from "../../../support/ul/config/data.json";
+// import data from "../../../support/ul/config/data.json";
 
 describe("Search for a product and place order", () => {
   it("Verify user is able to search and place order", () => {
-    
-    cy.searchProduct(data.homepage.searchItem);
+    const data = cy.fixtures('data')
+    cy.searchProduct(data.homePage.searchItem);
 
     checkNameOfItemListed(data.homepage.searchItem);
     selectFirstItem();

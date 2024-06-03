@@ -10,7 +10,7 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
+Cypress.Commands.add('login', () => {
     
         cy.get("#CustomerEmail").type(Cypress.env("username"));
         cy.get("#CustomerPassword").type(Cypress.env("password"));
