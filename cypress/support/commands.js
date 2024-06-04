@@ -15,9 +15,9 @@ Cypress.Commands.add('login', () => {
         cy.get("#CustomerEmail").type(Cypress.env("username"));
         cy.get("#CustomerPassword").type(Cypress.env("password"));
         cy.get("#customer_login").submit();
-        cy.get(
-          "#shopify-section-header > sticky-header > header > nav > ul > li:nth-child(1) > a > span"
-        ).click();
+        // cy.get(
+        //   "#shopify-section-header > sticky-header > header > nav > ul > li:nth-child(1) > a > span"
+        // ).click();
 })
   
 Cypress.Commands.add('searchProduct', (item) => {

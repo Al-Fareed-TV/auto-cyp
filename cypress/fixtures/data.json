@@ -3,6 +3,17 @@
     "searchItem": "Jeans",
     "title": "ul-web-playground"
   },
+  "accountPage":{
+    "orderTableText":[
+      "Order history",
+      "Order",
+      "Date",
+      "Payment status",
+      "Fulfillment status",
+      "Total"
+    ],
+    "userAddress":"Al Fareed RB nilaya Bandireddy Circle Lakshminarayanapuram Rajajinagar 560021 Bengaluru KA India"
+  },
   "cartpage": {
     "title": "Your Shopping Cart – ul-web-playground",
     "ProductNameInCart": "Belted Jeans",
