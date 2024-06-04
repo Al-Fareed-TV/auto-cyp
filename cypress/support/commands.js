@@ -10,30 +10,31 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', () => {
-    
-        cy.get("#CustomerEmail").type(Cypress.env("username"));
-        cy.get("#CustomerPassword").type(Cypress.env("password"));
-        cy.get("#customer_login").submit();
-        // cy.get(
-        //   "#shopify-section-header > sticky-header > header > nav > ul > li:nth-child(1) > a > span"
-        // ).click();
-})
-  
-Cypress.Commands.add('searchProduct', (item) => {
-    cy.get(
-      "#shopify-section-header > sticky-header > header > div > details-modal > details > summary > span > svg.modal__toggle-open.icon.icon-search"
-    ).click();
-    cy.get("#Search-In-Modal").type(item).type("{enter}");
-})
+Cypress.Commands.add("login", () => {
+  cy.get("#CustomerEmail").type(Cypress.env("username"));
+  cy.get("#CustomerPassword").type(Cypress.env("password"));
+  cy.get("#customer_login").submit();
+});
 
-Cypress.Commands.add('logout', () => {
-    cy.get(
-      "#shopify-section-header > sticky-header > header > div > a.header__icon.header__icon--account.link.focus-inset.small-hide"
-    ).click();
-    cy.contains("Log out").click();
-})
+Cypress.Commands.add("goToHomePage", () => {
+  cy.get(
+    "#shopify-section-header > sticky-header > header > nav > ul > li:nth-child(1) > a > span"
+  ).click();
+});
+Cypress.Commands.add("searchProduct", (item) => {
+  cy.get(
+    "#shopify-section-header > sticky-header > header > div > details-modal > details > summary > span > svg.modal__toggle-open.icon.icon-search"
+  ).click();
+  cy.get("#Search-In-Modal").type(item).type("{enter}");
+  cy.get("#product-grid > ul > li:nth-child(1)").click();
+});
 
+Cypress.Commands.add("logout", () => {
+  cy.get(
+    "#shopify-section-header > sticky-header > header > div > a.header__icon.header__icon--account.link.focus-inset.small-hide"
+  ).click();
+  cy.contains("Log out").click();
+});
 
 //
 //

@@ -13,7 +13,9 @@ export const getQtyElement = () => {
 export const getCartButton = () => {
   return "#cart-notification-button";
 };
-
+export const getProductNameElement = () => {
+  return "#ProductInfo-template--15328405717213__main > h1";
+}
 export const getProductAddedMessage = () => {
   return "Item added to your cart";
 };
