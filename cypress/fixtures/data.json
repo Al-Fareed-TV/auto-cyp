@@ -3,8 +3,13 @@
     "searchItem": "Jeans",
     "title": "ul-web-playground"
   },
-  "accountPage":{
-    "orderTableText":[
+  "searchproduct": "Alfa",
+  "productPage": {
+    "productPrice": "Rs. 329.00",
+    "productQty": 1
+  },
+  "accountpage": {
+    "orderTableText": [
       "Order history",
       "Order",
       "Date",
@@ -12,12 +17,10 @@
       "Fulfillment status",
       "Total"
     ],
-    "userAddress":"Al Fareed RB nilaya Bandireddy Circle Lakshminarayanapuram Rajajinagar 560021 Bengaluru KA India"
+    "userAddress": "Al Fareed RB nilaya Bandireddy Circle Lakshminarayanapuram Rajajinagar 560021 Bengaluru KA India"
   },
   "cartpage": {
     "title": "Your Shopping Cart – ul-web-playground",
-    "ProductNameInCart": "Belted Jeans",
-    "ProductPriceInCart": "Belted Jeans",
     "ProductQtyInCart": 1
   },
   "paymentpage": {

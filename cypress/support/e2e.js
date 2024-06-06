@@ -14,12 +14,24 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+before(() => {
+  cy.log(`Started executing test file: ${Cypress.spec.name}`);
+});
 
-beforeEach(() => {
-    cy.visit(Cypress.env("baseUrl"));
-    cy.login();
-})
+beforeEach(function () {
+  cy.visit(Cypress.env("baseUrl"));
+  cy.login();
+  cy.log(`Started executing test case: ${Cypress.currentTest.title}`);
+});
+
+afterEach(function () {
+  cy.log(`Finished executing test case: ${Cypress.currentTest.title}`);
+});
+
+after(() => {
+  cy.log(`Finished executing test file: ${Cypress.spec.name}`);
+});
