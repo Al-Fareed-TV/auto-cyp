@@ -21,3 +21,9 @@ export const getItemPrice = () => {
 export const getTotalPrice = () => {
   return "#app > div:nth-child(1) > div > div > div.f1jux.fc8Jc.kZBua.mB_Id._1fragemps._1fragempo._1fragemw5 > div > div.jCic4._1fragemps._1fragempp._1fragemw5 > div > aside > div > section > div > section > div.nfgb6p0 > div._1x41w3p1._1fragem3h._1fragemou._1x41w3p5 > div._1x41w3p8 > div > div";
 };
+export const accountSectionDropDown = () => {
+  return "#contact-collapsible > div._1fragemo1._1fragem4g._1fragem6t._1fragemoq._1fragemou._1fragem3c._1fragemog._1fragemr4._1fragemr8._16s97g7f._16s97g7p._16s97g71j._16s97g71t > div";
+}
+export const addressSectionDropDown = () => {
+  return "#deliveryAddress-collapsible > div._1fragemo1._1fragem4g._1fragem6t._1fragemoq._1fragemou._1fragem3c._1fragemog._1fragemr4._1fragemr8._16s97g7f._16s97g7p._16s97g71j._16s97g71t > div";
+}

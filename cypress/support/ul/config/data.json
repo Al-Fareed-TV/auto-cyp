@@ -16,8 +16,8 @@
     "paymentpage": {
         "title": "Checkout - ul-web-playground",
         "productQty":"1",
-        "productPrice":"₹299.60",
-        "totalPrice":"INR₹335.86",
+        "productPrice":"₹329.00",
+        "totalPrice":"INR₹368.81",
         "orderSuccessMessage":"Thank you for your purchase! - ul-web-playground - Checkout"
     }
 }

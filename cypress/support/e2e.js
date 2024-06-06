@@ -23,7 +23,7 @@ before(() => {
 });
 
 beforeEach(function () {
-  cy.visit(Cypress.env("baseUrl"));
+  cy.visit(Cypress.env("baseUrl") + "/account/login");
   cy.login();
   cy.log(`Started executing test case: ${Cypress.currentTest.title}`);
 });

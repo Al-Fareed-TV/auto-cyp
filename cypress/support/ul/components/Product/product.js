@@ -19,3 +19,6 @@ export const getProductNameElement = () => {
 export const getProductAddedMessage = () => {
   return "Item added to your cart";
 };
+export const getImagesElement = () => {
+  return "#shopify-section-template--15328405717213__main > section > div > div.grid__item.product__media-wrapper > slider-component > ul";
+}

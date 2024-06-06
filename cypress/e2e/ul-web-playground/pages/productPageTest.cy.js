@@ -4,6 +4,7 @@ import {
   getQtyElement,
   getCartButton,
   getProductAddedMessage,
+  getImagesElement,
 } from "../../../support/ul/components/Product/product";
 describe("Test Product Description page", () => {
   let testData;
@@ -43,9 +44,7 @@ describe("Test Product Description page", () => {
       });
   });
   it("Verify images are displayed and visible", () => {
-    cy.get(
-      "#shopify-section-template--15328405717213__main > section > div > div.grid__item.product__media-wrapper > slider-component > ul"
-    )
+    cy.get(getImagesElement())
       .find("img")
       .should("have.length.greaterThan", 0)
       .and("be.visible");
